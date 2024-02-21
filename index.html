@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container Security Survey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="title">Container Security Survey</h1>
+    <p id="description">This survey aims to gather insights into your organization's container security practices. Your feedback is crucial for understanding and improving the container security posture.</p>
+    
+    <form id="survey-form">
+        <!-- General Information -->
+        <label for="name" id="name-label">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+        
+        <label for="email" id="email-label">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        
+        <label for="number" id="number-label">Age:</label>
+        <input type="number" id="number" min="18" max="99" placeholder="Your age" required>
+        
+        <label for="dropdown" id="dropdown-label">Your Role:</label>
+<select id="dropdown" required>
+    <option value="">--Please choose an option--</option>
+    <option value="developer">Developer</option>
+    <option value="devops">DevOps</option>
+    <option value="security">Security Professional</option>
+</select>
+
+        <!-- Secure the Build -->
+        <fieldset>
+            <legend>Secure the Build</legend>
+            <label>Does your organization harden the code by performing static analysis on your code to surface any vulnerabilities?</label>
+            <label><input type="radio" name="static_analysis" value="yes" required> Yes</label>
+            <label><input type="radio" name="static_analysis" value="no"> No</label>
+
+            <label>Has your organization secured its images?</label>
+            <select id="container" required>
+                <option value="">--Please inform us how you build your container images--</option>
+                <option value="none">None</option>
+                <option value="docker">Docker</option>
+                <option value="kaniko">Kaniko</option>
+                <option value="other">Other</option>
+            
+            <label>Do your organization harden the image by using minimal OS images for its containers (e.g., Alpine, Distroless)?</label>
+            <label><input type="radio" name="minimal_os_images" value="yes" required> Yes</label>
+            <label><input type="radio" name="minimal_os_images" value="no"> No</label>
+        </fieldset>
+
+         <!-- Secure the Container Registry -->
+         <fieldset>
+            <legend>Secure the Container Registry</legend>
+            <label>Does your organization enforce image trust with image signing?</label>
+            <label><input type="radio" name="image_signing" value="yes" required> Yes</label>
+            <label><input type="radio" name="image_signing" value="no"> No</label>
+            
+            <label>Is your organization's container registry private and secured behind a firewall?</label>
+            <label><input type="radio" name="private_registry" value="yes" required> Yes</label>
+            <label><input type="radio" name="private_registry" value="no"> No</label>
+        </fieldset>
+
+        <!-- Secure the Container Runtime -->
+        <fieldset>
+            <legend>Secure the Container Runtime</legend>
+            <label>Does your organization run containers in rootless mode to enhance security?</label>
+            <input type="radio" name="rootless_mode" value="yes" required> Yes
+            <input type="radio" name="rootless_mode" value="no"> No
+            
+            <label>How does your organization monitor runtime behavior for suspicious activities?</label>
+            <label for="monitor">Monitor Processes:</label>
+            <textarea id="monitor" placeholder="Processes used to monitor suspicious activities"></textarea>
+        </fieldset>
+
+        <!-- Secure the Infrastructure -->
+        <fieldset>
+            <label>What measures does your organization take to secure the host operating system and kernel?</label>
+            <textarea id="secure_os" placeholder="Your measures here"></textarea>
+        </fieldset>
+
+        <!-- Secure the Data -->
+        <fieldset>
+            <label>How does your organization manage sensitive data within its containerized applications?</label>
+            <textarea id="manage_secrets" placeholder="Your management strategy"></textarea>
+        </fieldset>
+
+        <!-- Secure the Workloads -->
+        <fieldset>
+            <label>Does your organization implement resource limits to prevent resource abuse by containers?</label>
+            <input type="radio" name="resource_limits" value="yes" required> Yes
+            <input type="radio" name="resource_limits" value="no"> No
+        </fieldset>
+
+        <!-- Cloud Native Challenges and Container Threat Model -->
+        <fieldset>
+            <legend>Cloud Native Challenges and Container Threat Model</legend>
+            <label>Are you aware of the differences between legacy and cloud-native app security requirements?</label>
+            <input type="radio" name="awareness" value="yes" required> Yes
+            <input type="radio" name="awareness" value="no"> No
+            
+            <label>How would you rate your understanding of container escape vulnerabilities?</label>
+            <select id="understanding" required>
+                <option value="">--Please rate your understanding--</option>
+                <option value="none">None</option>
+                <option value="basic">Basic</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+            </select>
+
+            <label>Does your organization conduct the following practices:</label>
+            <label><input type="checkbox" name="cloud_native_challenges" value="frequent_releases" required> Frequent releases using CI/CD</label>
+            <label><input type="checkbox" name="cloud_native_challenges" value="open_source" required> Open source everywhere</label>
+        </fieldset>
+
+        <!-- Practices and Tools -->
+        <fieldset>
+            <legend>Practices and Tools</legend>
+            <label>Which container security tools and practices is your organization currently using?</label>
+            <textarea id="tools_practices" placeholder="List your tools and practices"></textarea>
+            
+            <label>How frequently does your organization update its container images and base images?</label>
+            <select id="update_frequency" required>
+                <option value="">--Please select--</option>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="less_often">Less Often</option>
+            </select>
+        </fieldset>
+        
+        <!-- Challenges and Improvements -->
+        <fieldset>
+            <legend>Challenges and Improvements</legend>
+            <label for="challenges">Biggest challenges:</label>
+            <textarea id="challenges" placeholder="Describe your challenges"></textarea>
+            
+            <label for="improvements">Desired improvements:</label>
+            <textarea id="improvements" placeholder="Describe desired improvements"></textarea>
+        </fieldset>
+
+        <!-- Conclusion -->
+        <p>Thank you for taking the time to complete this survey. Your insights are invaluable to us.</p>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+</body>
+</html>
